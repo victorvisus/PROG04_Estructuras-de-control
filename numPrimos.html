@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script language="JavaScript">
+        <!-- hide from other browsers
+        //Copyright 1998 Henry Bottomley (written 23 December)
+        //All rights reserved
+
+        function factorise(numm) // To calculate the prime factors of a number
+        {
+            var newnum = numm; // Initialise
+            var newtext = "";
+            var checker = 2; // First possible factor to check
+
+            while (checker * checker <= newnum) // See if it is worth looking further for factors 
+            {
+                if (newnum % checker == 0) // If the possible factor is indeed a factor...
+                {
+                    newtext = newtext + checker; // ...then record the factor
+                    newnum = newnum / checker; //    and divide by it
+                    if (newnum != 1) //    then check whether it is not last...
+                    {
+                        newtext = newtext + "."; //    ...and if so prepare for the next
+                    }
+                } else // otherwise...
+                {
+                    checker++; // try the next possible factor
+                }
+            }
+            if (newnum != 1) // If there is anything left at the end...
+            { // ...this must be the last prime factor
+                newtext = newtext + newnum; //    so it too should be recorded
+            }
+            if (newtext == "" + numm) // If the only prime factor is the original...
+            {
+                newtext = "Prime: " + newtext; // ...then note that it must have been prime.
+            }
+
+            return newtext; // Return the prime factors
+        }
+        // stop hiding 
+
+        -->
+    </script>
+
+
+    <script>
+        var numero = 1234567890; //El numero que examinaremos.
+        var factores[1000]; //Arreglo para almacenar factores de "numero".
+        var i_factores = 0; //Indice para recorrer el arreglo "factores[]".
+
+
+        var main() {
+
+            var i = 2; //Empezaremos a verificar todos los factores desde 2.
+            //Pues el numero 1 es factor de todos los numeros.
+            while (i <= numero) {
+                if ((numero % i) == 0) //a%b=0, implica que b es factor de a.
+                {
+                    factores[i_factores] = i; //Añadimos el factor al arreglo.
+                    numero = numero / i; //Procesamos la variable "numero".
+                    i_factores++; //Incrementamos indice de arreglo para el siguiente numero.
+                    continue;
+                }
+                i++; //Incrementamos indice.
+            }
+
+            /* Rutina para imprimir */
+            i = 0;
+            printf("1 ");
+            while (i < i_factores) {
+                printf(" %d ", factores[i]);
+                i++;
+            }
+
+            return 0;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
